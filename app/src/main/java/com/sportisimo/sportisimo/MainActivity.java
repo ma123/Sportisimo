@@ -133,6 +133,8 @@ public class MainActivity extends AppCompatActivity  {
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
 
+        settings.setDomStorageEnabled(true);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
         }
@@ -187,15 +189,8 @@ public class MainActivity extends AppCompatActivity  {
                     public void run() {
                         textView.setText(result);
 
-                        final String js = "javascript:document.getElementById('search_form_input_homepage').value='android';" +
-                                "document.getElementById('search_button_homepage').click()";
-
-                        webView.evaluateJavascript("javascript:document.getElementById('sendedBarcodeAndroid').value='" + result + "';", new ValueCallback<String>() {
-                            @Override
-                            public void onReceiveValue(String s) {
-                            }
-                        });
-
+                        webView.loadUrl("javascript:var x = document.getElementById('inputBarcodeAndroid').value = '"+ result +"';");
+                        webView.loadUrl("javascript:document.getElementById('copyBarcodeAndroid').click();");
                     }
                 });
             }

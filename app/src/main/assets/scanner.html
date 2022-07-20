@@ -8,22 +8,26 @@
   <script src="https://unpkg.com/dynamsoft-javascript-barcode@9.0.2/dist/dbr.js"></script>
   <script src="https://unpkg.com/eruda@2.4.1/eruda.js"></script>
   <script>eruda.init();</script>
+
 </head>
 <body>
-  <div class="home">
+  <div class="home fullscreen">
     <div id="status">Initializing...</div>
   </div>
-  <div class="scanner" style="display:inline;">
+
+  <div class="scanner" >
     <svg class="overlay fullscreen"></svg>
     <video class="camera fullscreen" muted autoplay="autoplay">Your browser does not support the video tag.</video>
   </div>
 
-  <input type="text" id="inputBarcodeJS" placeholder="Enter barcode here JS">
-  <input type="text" id="inputBarcodeAndroid" placeholder="Enter barcode here android">
-  <div id="sendedBarcodeJS">Sended barcode JS</div>
-  <div id="sendedBarcodeAndroid">Sended barcode Android</div>
-  <button id="copyBarcodeJS" onclick="document.querySelector('#sendedBarcodeJS').innerHTML = document.querySelector('#inputBarcodeJS').value" value="Send barcode JS">Send barcode JS</button>
-  <button id="copyBarcodeAndroid" onclick="document.querySelector('#sendedBarcodeAndroid').innerHTML = document.querySelector('#inputBarcodeAndroid').value" value="Send barcode android">Send barcode android</button>
+  <div class="inputs fullscreen">
+    <input type="text" id="inputBarcodeJS" placeholder="Enter barcode here JS">
+    <input type="text" id="inputBarcodeAndroid" placeholder="Enter barcode here android">
+    <div id="sendedBarcodeJS">Sended barcode JS</div>
+    <div id="sendedBarcodeAndroid">Sended barcode Android</div>
+    <button id="copyBarcodeJS" onclick="copyToJS()" value="Send barcode JS">Send barcode JS</button>
+    <button id="copyBarcodeAndroid" onclick="copyToAndroid()" value="Send barcode android">Send barcode android</button>
+  </div>
 
   <script src="scanner.js"></script>
 </body>

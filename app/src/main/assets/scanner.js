@@ -163,3 +163,12 @@ function getPointsData(lr){
   pointsData = pointsData+ lr.x4+","+lr.y4;
   return pointsData;
 }
+
+function copyToJS(){
+  document.querySelector('#sendedBarcodeJS').innerHTML = document.querySelector('#inputBarcodeJS').value
+}
+
+function copyToAndroid(){
+  document.querySelector('#sendedBarcodeAndroid').innerHTML = document.querySelector('#inputBarcodeAndroid').value
+}
+
